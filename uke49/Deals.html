@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brand</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        nav {
+            background-color: black;
+        }
+        nav a {
+            display: inline-block;
+            color: white;
+            font-family: "Open sans", sans-serif;
+            padding: 34px 22px 12px 12px;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            color: cyan;
+        }
+        .active {
+            color: white;
+            border-bottom: 4px solid cyan;
+        }
+
+        .streetwear {
+            display: flex;
+        }
+        .streetwear > article {
+            border: 2px solid white;
+            height: 500px;
+            width: 400px;
+            flex: 1;
+            transition: 0.4s;
+            background-size: cover;
+            background-position: center center;
+        }
+        .streetwear > article:hover {
+            flex: 1.1;
+            transform: scale(1);
+            opacity: 1;
+            z-index: 1000;
+        }
+        .streetwear > article:nth-child(1) {background-image: url("ok2.png")}
+        .streetwear > article:nth-child(2) {background-image: url("ok3.png")}
+        .streetwear > article:nth-child(3) {background-image: url("ok1.png")}
+        .streetwear > article:nth-child(4) {background-image: url("ok4.png")}
+        .streetwear > article:nth-child(5) {background-image: url("ok5.png")}
+        .streetwear > article:nth-child(1){
+            transform-origin: left;
+        }
+        h1 {
+            padding-left: 430px;
+            color: black;
+            text-shadow: 2px 2px 2px grey;
+        }
+        p {
+            padding-left: 430px;
+            color: black;
+            text-shadow: 2px 2px 2px grey;
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="Men.html">Men</a>
+        <a href="Women.html">Women</a>
+        <a class="active" href="Deals.html">Deals</a>
+        <a href="Contact%20Us.html">Contact Us</a>
+    </nav>
+
+    <section class="streetwear">
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+    </section>
+
+    <h1>Alle of the clothes above 50% off</h1>
+    <p>Only by using our seasonal code "SWWINTER22"</p>
+
+
+
+
+
+
+</body>
+</html>
