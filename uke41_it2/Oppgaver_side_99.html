@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <title>Funksjoner</title>
+</head>
+
+    <style>
+
+        #canvas {
+            border-style: solid;
+        }
+
+    </style>
+
+<body>
+
+
+
+    <p>Hei jeg heter Sander</p>
+
+    <canvas id="canvas" height="500" width="500"></canvas>
+
+    <script>
+        /* //Oppgave 1//
+        function sander() {
+            document.write("Sander De Vibe Hammerstad <br>"); //<br> linjeskifte som gjør at navnet skrives ut under hverandre//
+        }
+
+        sander(); //starter funksjonen "sander" og skriver ut det som står inne i document.write()
+        sander();
+        sander();
+        */
+
+        /* //Oppgave 2//
+        function endreBody() {
+            document.body.style.backgroundColor = "gray"; //endrer til grå bakgrunnsfarge
+            document.body.style.fontSize = "150%"; //endrer på skriftstørrelse
+        }
+
+        endreBody(); //kjører funksjonen
+        */
+
+        //Oppgave 4//
+        /*Det er hensiktsmessig å bruke funksjoner når vi vil gjenbruke kode flere ganger, og skape interaktivitet mellom bruker og nettside*/
+
+         /*//Oppgave 6a//
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        var x = 250;
+        var y = 250;
+
+        tegnSirkel();
+        flyttX();
+        flyttY();
+        tegnSirkel();
+        flyttX();
+        flyttY();
+        tegnSirkel();
+
+
+        function tegnSirkel() {
+            ctx.beginPath();
+            ctx.arc(x, y, 25, 0, Math.PI*2);
+            ctx.fill();
+        }
+
+        function flyttX() {
+            x = x+70;
+        }
+
+        function flyttY() {
+            y = y+70;
+        } */
+
+
+
+        //Oppgave 6b//
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        for (var i=0; i<=50; i++) {
+            for (var j=0; j<=100; j++) {
+                ctx.beginPath();
+                ctx.arc(i*100, j*100, 25, 0, Math.PI*2);
+                ctx.stroke();
+            }
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>
