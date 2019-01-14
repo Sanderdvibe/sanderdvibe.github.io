@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <title>DnD Dice Roller</title>
+
+    <style>
+
+        body {
+            font-family: sans-serif;
+        }
+
+        .secDnd {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+        }
+        .inpNum {
+            width: 60px;
+        }
+        #inpNumd4, #inpNumd6, #inpNumd8, #inpNumd10, #inpNumd100, #inpNumd12, #inpNumd20 {
+            width: 60px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Dungeons & Dragons Dice Roller</h1>
+    <hr>
+
+    <section class="secDnd">
+        <div>Die</div>
+        <div>Number</div>
+        <div>+ -</div>
+        <div>Modifier</div>
+        <div>Button</div>
+        <div>Results</div>
+    </section>
+
+    <hr>
+
+    <section class="secDnd">
+        <div>d4</div>
+        <input type="number" class="inpNum" value="1">
+        <div>
+            <input type="checkbox" id="inpCheckboxd4">
+            <input type="checkbox" id="inpCheckboxd4_2">
+        </div>
+        <input type="number" id="inpNumd4">
+        <button id="btnRolld4" style="width: 60px">Roll</button>
+        <div id="d4RollOut"></div>
+    </section>
+
+    <hr>
+
+    <section class="secDnd">
+        <div>d6</div>
+        <input type="number" class="inpNum" value="1">
+        <div>
+            <input type="checkbox" id="inpCheckboxd6">
+            <input type="checkbox" id="inpCheckboxd6_2">
+        </div>
+        <input type="number" id="inpNumd6">
+        <button id="btnRolld6" style="width: 60px">Roll</button>
+        <div id="d6Roll"></div>
+    </section>
+
+    <hr>
+
+    <section class="secDnd">
+        <div>d8</div>
+        <input type="number" class="inpNum" value="1">
+        <div>
+            <input type="checkbox" id="inpCheckboxd8">
+            <input type="checkbox" id="inpCheckboxd8_2">
+        </div>
+        <input type="number" id="inpNumd8">
+        <button id="btnRolld8" style="width: 60px">Roll</button>
+        <div id="d8Roll"></div>
+    </section>
+
+    <hr>
+
+    <section class="secDnd">
+        <div>d10</div>
+        <input type="number" class="inpNum" value="1">
+        <div>
+            <input type="checkbox" id="inpCheckboxd10">
+            <input type="checkbox" id="inpCheckboxd10_2">
+        </div>
+        <input type="number" id="inpNumd10">
+        <button id="btnRolld10" style="width: 60px">Roll</button>
+        <div id="d10Roll"></div>
+    </section>
+
+    <hr>
+
+    <section class="secDnd">
+        <div>d100</div>
+        <input type="number" class="inpNum" value="1">
+        <div>
+            <input type="checkbox" id="inpCheckboxd100">
+            <input type="checkbox" id="inpCheckboxd100_2">
+        </div>
+        <input type="number" id="inpNumd100">
+        <button id="btnRolld100" style="width: 60px">Roll</button>
+        <div id="d100Roll"></div>
+    </section>
+
+    <hr>
+
+    <section class="secDnd">
+        <div>d12</div>
+        <input type="number" class="inpNum" value="1">
+        <div>
+            <input type="checkbox" id="inpCheckboxd12">
+            <input type="checkbox" id="inpCheckboxd12_2">
+        </div>
+        <input type="number" id="inpNumd12">
+        <button id="btnRolld12" style="width: 60px">Roll</button>
+        <div id="d12Roll"></div>
+    </section>
+
+    <hr>
+
+    <section class="secDnd">
+        <div>d20</div>
+        <input type="number" class="inpNum" value="1">
+        <div>
+            <input type="checkbox" id="inpCheckboxd20">
+            <input type="checkbox" id="inpCheckboxd20_2">
+        </div>
+        <input type="number" id="inpNumd20">
+        <button id="btnRolld20" style="width: 60px">Roll</button>
+        <div id="d20Roll"></div>
+    </section>
+
+    <hr>
+
+
+    <script>
+
+        var btnRolld4 = document.getElementById("btnRolld4");
+        var d4RollOut = document.getElementById("d4RollOut");
+
+
+        btnRolld4.onclick = function () {
+            let d4Roll = Math.floor(Math.random()*4)+1;
+            if (document.getElementById("inpCheckboxd4").checked = true) {
+                d4Roll = d4Roll + Number(inpNumd4.value);
+                d4RollOut.innerHTML = `${d4Roll.value}`
+            }
+            else if(document.getElementById("inpCheckboxd4_2").checked = true) {
+                d4Roll = d4Roll - Number(inpNumd4.value);
+                d4RollOut.innerHTML = `${d4Roll.value}`
+            }
+            else {
+                d4RollOut.innerHTML = `${d4Roll.value}`
+            }
+
+        };
+
+        var btnRolld6 = document.getElementById("btnRolld6");
+        var d6Roll = document.getElementById("d6Roll");
+
+        btnRolld6.onclick = function () {
+            d6Roll.innerHTML = Math.floor(Math.random()*6)+1
+        };
+
+        var btnRolld8 = document.getElementById("btnRolld8");
+        var d8Roll = document.getElementById("d8Roll");
+
+        btnRolld8.onclick = function () {
+            d8Roll.innerHTML = Math.floor(Math.random()*8)+1
+        };
+
+        var btnRolld10 = document.getElementById("btnRolld10");
+        var d10Roll = document.getElementById("d10Roll");
+
+        btnRolld10.onclick = function () {
+            d10Roll.innerHTML = Math.floor(Math.random()*10)+1
+        };
+
+        var btnRolld100 = document.getElementById("btnRolld100");
+        var d100Roll = document.getElementById("d100Roll");
+
+        btnRolld100.onclick = function () {
+            d100Roll.innerHTML = Math.floor(Math.random()*100)+1
+        };
+
+        var btnRolld12 = document.getElementById("btnRolld12");
+        var d12Roll = document.getElementById("d12Roll");
+
+        btnRolld12.onclick = function () {
+            d12Roll.innerHTML = Math.floor(Math.random()*12)+1
+        };
+
+        var btnRolld20 = document.getElementById("btnRolld20");
+        var d20Roll = document.getElementById("d20Roll");
+
+        btnRolld20.onclick = function () {
+            d20Roll.innerHTML = Math.floor(Math.random()*20)+1
+        };
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>
