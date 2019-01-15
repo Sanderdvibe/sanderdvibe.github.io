@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale">
     <title>DnD Dice Roller</title>
+    <link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
 
     <style>
 
-        body {
+
+        section {
             font-family: sans-serif;
         }
 
@@ -21,14 +23,32 @@
         #inpNumd4, #inpNumd6, #inpNumd8, #inpNumd10, #inpNumd100, #inpNumd12, #inpNumd20 {
             width: 60px;
         }
+        #head1 {
+            font-family: 'Charm', cursive;
+        }
+        #head2 {
+            font-family: 'Charm', cursive;
+            opacity: 0.4;
+        }
+        #removeDiv {
+            position: absolute;
+            transition: .5s ease;
+            right: 160px;
+        }
+        #removeDiv:hover {
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
+        }
+
 
     </style>
 
 </head>
 <body>
 
-    <h1>Dungeons & Dragons Dice Roller</h1>
+    <h1 id="head1">Dungeons & Dragons Dice Roller</h1>
+    <h3 align="right" id="head2">Sandor Edition</h3>
     <hr>
+
 
     <section class="secDnd">
         <div>Die</div>
@@ -64,7 +84,7 @@
         </div>
         <input type="number" id="inpNumd6">
         <button id="btnRolld6" style="width: 60px">Roll</button>
-        <div id="d6Roll"></div>
+        <div id="d6RollOut"></div>
     </section>
 
     <hr>
@@ -78,7 +98,7 @@
         </div>
         <input type="number" id="inpNumd8">
         <button id="btnRolld8" style="width: 60px">Roll</button>
-        <div id="d8Roll"></div>
+        <div id="d8RollOut"></div>
     </section>
 
     <hr>
@@ -92,7 +112,7 @@
         </div>
         <input type="number" id="inpNumd10">
         <button id="btnRolld10" style="width: 60px">Roll</button>
-        <div id="d10Roll"></div>
+        <div id="d10RollOut"></div>
     </section>
 
     <hr>
@@ -106,7 +126,7 @@
         </div>
         <input type="number" id="inpNumd100">
         <button id="btnRolld100" style="width: 60px">Roll</button>
-        <div id="d100Roll"></div>
+        <div id="d100RollOut"></div>
     </section>
 
     <hr>
@@ -120,7 +140,7 @@
         </div>
         <input type="number" id="inpNumd12">
         <button id="btnRolld12" style="width: 60px">Roll</button>
-        <div id="d12Roll"></div>
+        <div id="d12RollOut"></div>
     </section>
 
     <hr>
@@ -134,82 +154,164 @@
         </div>
         <input type="number" id="inpNumd20">
         <button id="btnRolld20" style="width: 60px">Roll</button>
-        <div id="d20Roll"></div>
+        <div id="d20RollOut"></div>
     </section>
 
     <hr>
+
+    <button id="removeDiv">Clear Rolls</button>
 
 
     <script>
 
         var btnRolld4 = document.getElementById("btnRolld4");
         var d4RollOut = document.getElementById("d4RollOut");
+        var inpNumd4 = document.getElementById("inpNumd4");
+        var inpCheckboxd4 = document.getElementById("inpCheckboxd4");
+        var inpCheckboxd4_2 = document.getElementById("inpCheckboxd4_2");
 
 
         btnRolld4.onclick = function () {
             let d4Roll = Math.floor(Math.random()*4)+1;
-            if (document.getElementById("inpCheckboxd4").checked = true) {
-                d4Roll = d4Roll + Number(inpNumd4.value);
-                d4RollOut.innerHTML = `${d4Roll.value}`
+            if (inpCheckboxd4.checked === true) {
+                d4RollOut.innerHTML = `${d4Roll} + (${inpNumd4.value}) = ${d4Roll + Number(inpNumd4.value)}`
             }
-            else if(document.getElementById("inpCheckboxd4_2").checked = true) {
-                d4Roll = d4Roll - Number(inpNumd4.value);
-                d4RollOut.innerHTML = `${d4Roll.value}`
+            else if(inpCheckboxd4_2.checked === true) {
+                d4RollOut.innerHTML = `${d4Roll} - (${inpNumd4.value}) = ${d4Roll - Number(inpNumd4.value)}`
             }
             else {
-                d4RollOut.innerHTML = `${d4Roll.value}`
+                d4RollOut.innerHTML = d4Roll
             }
 
         };
 
         var btnRolld6 = document.getElementById("btnRolld6");
-        var d6Roll = document.getElementById("d6Roll");
+        var d6RollOut = document.getElementById("d6RollOut");
+        var inpNumd6 = document.getElementById("inpNumd6");
+        var inpCheckboxd6 = document.getElementById("inpCheckboxd6");
+        var inpCheckboxd6_2 = document.getElementById("inpCheckboxd6_2");
 
         btnRolld6.onclick = function () {
-            d6Roll.innerHTML = Math.floor(Math.random()*6)+1
+            let d6Roll = Math.floor(Math.random()*6)+1;
+            if (inpCheckboxd6.checked === true) {
+                d6RollOut.innerHTML = `${d6Roll} + (${inpNumd6.value}) = ${d6Roll + Number(inpNumd6.value)}`
+            }
+            else if (inpCheckboxd6_2.checked === true) {
+                d6RollOut.innerHTML = `${d6Roll} - (${inpNumd6.value}) = ${d6Roll - Number(inpNumd6.value)}`
+            }
+            else {
+                d6RollOut.innerHTML = d6Roll
+            }
         };
 
         var btnRolld8 = document.getElementById("btnRolld8");
-        var d8Roll = document.getElementById("d8Roll");
+        var d8RollOut = document.getElementById("d8RollOut");
+        var inpNumd8 = document.getElementById("inpNumd8");
+        var inpCheckboxd8 = document.getElementById("inpCheckboxd8");
+        var inpCheckboxd8_2 = document.getElementById("inpCheckboxd8_2");
 
         btnRolld8.onclick = function () {
-            d8Roll.innerHTML = Math.floor(Math.random()*8)+1
-        };
+            let d8Roll = Math.floor(Math.random()*8)+1;
+            if (inpCheckboxd8.checked === true) {
+                d8RollOut.innerHTML = `${d8Roll} + (${inpNumd8.value}) = ${d8Roll + Number(inpNumd8.value)}`
+            }
+            else if (inpCheckboxd8_2.checked === true) {
+                d8RollOut.innerHTML = `${d8Roll} - (${inpNumd8.value}) = ${d8Roll - Number(inpNumd8.value)}`
+            }
+            else {
+                d8RollOut.innerHTML = d8Roll
+            }
+            };
+
 
         var btnRolld10 = document.getElementById("btnRolld10");
-        var d10Roll = document.getElementById("d10Roll");
+        var d10RollOut = document.getElementById("d10RollOut");
+        var inpNumd10 = document.getElementById("inpNumd10");
+        var inpCheckboxd10 = document.getElementById("inpCheckboxd10");
+        var inpCheckboxd10_2 = document.getElementById("inpCheckboxd10_2");
 
         btnRolld10.onclick = function () {
-            d10Roll.innerHTML = Math.floor(Math.random()*10)+1
+            let d10Roll = Math.floor(Math.random()*10)+1;
+            if (inpCheckboxd10.checked === true) {
+                d10RollOut.innerHTML = `${d10Roll} + (${inpNumd10.value}) = ${d10Roll + Number(inpNumd10.value)}`
+            }
+            else if (inpCheckboxd10_2.checked === true) {
+                d10RollOut.innerHTML = `${d10Roll} - (${inpNumd10.value}) = ${d10Roll - Number(inpNumd10.value)}`
+            }
+            else {
+                d10RollOut.innerHTML = d10Roll
+            }
         };
 
         var btnRolld100 = document.getElementById("btnRolld100");
-        var d100Roll = document.getElementById("d100Roll");
+        var d100RollOut = document.getElementById("d100RollOut");
+        var inpNumd100 = document.getElementById("inpNumd100");
+        var inpCheckboxd100 = document.getElementById("inpCheckboxd100");
+        var inpCheckboxd100_2 = document.getElementById("inpCheckboxd100_2");
 
         btnRolld100.onclick = function () {
-            d100Roll.innerHTML = Math.floor(Math.random()*100)+1
+            let d100Roll = Math.floor(Math.random()*100)+1;
+            if (inpCheckboxd100.checked === true) {
+                d100RollOut.innerHTML = `${d100Roll} + (${inpNumd100.value}) = ${d100Roll + Number(inpNumd100.value)}`
+            }
+            else if (inpCheckboxd100_2.checked === true) {
+                d100RollOut.innerHTML = `${d100Roll} - (${inpNumd100.value}) = ${d100Roll - Number(inpNumd100.value)}`
+            }
+            else {
+                d100RollOut.innerHTML = d100Roll
+            }
         };
 
         var btnRolld12 = document.getElementById("btnRolld12");
-        var d12Roll = document.getElementById("d12Roll");
+        var d12RollOut = document.getElementById("d12RollOut");
+        var inpNumd12 = document.getElementById("inpNumd12");
+        var inpCheckboxd12 = document.getElementById("inpCheckboxd12");
+        var inpCheckboxd12_2 = document.getElementById("inpCheckboxd12_2");
 
         btnRolld12.onclick = function () {
-            d12Roll.innerHTML = Math.floor(Math.random()*12)+1
+            let d12Roll = Math.floor(Math.random()*12)+1;
+            if (inpCheckboxd12.checked === true) {
+                d12RollOut.innerHTML = `${d12Roll} + (${inpNumd12.value}) = ${d12Roll + Number(inpNumd12.value)}`
+            }
+            else if (inpCheckboxd12_2.checked === true) {
+                d12RollOut.innerHTML = `${d12Roll} - (${inpNumd12.value}) = ${d12Roll - Number(inpNumd12.value)}`
+            }
+            else {
+                d12RollOut.innerHTML = d12Roll
+            }
         };
 
         var btnRolld20 = document.getElementById("btnRolld20");
-        var d20Roll = document.getElementById("d20Roll");
+        var d20RollOut = document.getElementById("d20RollOut");
+        var inpNumd20 = document.getElementById("inpNumd20");
+        var inpCheckboxd20 = document.getElementById("inpCheckboxd20");
+        var inpCheckboxd20_2 = document.getElementById("inpCheckboxd20_2");
 
         btnRolld20.onclick = function () {
-            d20Roll.innerHTML = Math.floor(Math.random()*20)+1
+            let d20Roll = Math.floor(Math.random()*20)+1;
+            if (inpCheckboxd20.checked === true) {
+                d20RollOut.innerHTML = `${d20Roll} + (${inpNumd20.value}) = ${d20Roll + Number(inpNumd20.value)}`
+            }
+            else if (inpCheckboxd20_2.checked === true) {
+                d20RollOut.innerHTML = `${d20Roll} - (${inpNumd20.value}) = ${d20Roll - Number(inpNumd20.value)}`
+            }
+            else {
+                d20RollOut.innerHTML = d20Roll
+            }
         };
 
 
+        var removeDiv = document.getElementById("removeDiv");
 
-
-
-
-
+        removeDiv.onclick = function () {
+            d4RollOut.remove();
+            d6RollOut.remove();
+            d8RollOut.remove();
+            d10RollOut.remove();
+            d100RollOut.remove();
+            d12RollOut.remove();
+            d20RollOut.remove();
+        };
     </script>
 
 
