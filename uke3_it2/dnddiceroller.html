@@ -10,7 +10,9 @@
 
 
         section {
-            font-family: sans-serif;
+            font-family: 'Charm';
+            font-size: 20px;
+
         }
 
         .secDnd {
@@ -55,7 +57,7 @@
         <div>Number</div>
         <div>+ -</div>
         <div>Modifier</div>
-        <div>Button</div>
+        <div></div>
         <div>Results</div>
     </section>
 
@@ -300,18 +302,17 @@
             }
         };
 
-
         var removeDiv = document.getElementById("removeDiv");
 
         removeDiv.onclick = function () {
-            d4RollOut.remove();
-            d6RollOut.remove();
-            d8RollOut.remove();
-            d10RollOut.remove();
-            d100RollOut.remove();
-            d12RollOut.remove();
-            d20RollOut.remove();
-        };
+            document.getElementById("d4RollOut").innerHTML = "";
+            document.getElementById("d6RollOut").innerHTML = "";
+            document.getElementById("d8RollOut").innerHTML = "";
+            document.getElementById("d10RollOut").innerHTML = "";
+            document.getElementById("d100RollOut").innerHTML = "";
+            document.getElementById("d12RollOut").innerHTML = "";
+            document.getElementById("d20RollOut").innerHTML = "";
+        }
     </script>
 
 
